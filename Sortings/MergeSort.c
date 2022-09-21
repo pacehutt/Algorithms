@@ -15,6 +15,25 @@ void mergeSort(int A[], int l, int h)
 	}
 }
 
+void mergeSortIterative(int A[], int size)
+{
+//	p for passes
+
+   int p,i,l,h,mid,n=size;
+   
+   for(p=2; p<=n; p*=2)
+   {
+   	  for(i=0; i+p-1<n; i+=p)
+   	  {
+   	  	l=i;
+   	  	h=i+p-1;
+   	  	mid=(l+h)/2;
+   	  	merge(A,l,mid,h);
+		 
+		}
+	} 
+}
+
 void merge(int A[], int l, int m, int h)
 {
 	int i, j, k;
@@ -53,8 +72,8 @@ int main()
 {
 	int arr[] = { 9, 5, 1, 6, 8, 2, 7, 3, 4 };
 	int i;
-	mergeSort(arr, 0, 8);
-
+// 	mergeSort(arr, 0, 8);
+    mergeSortIterative(arr,8);
 	for (i = 0; i < 9; i++)
 	printf("%d  ", arr[i]);
 	
